@@ -1,0 +1,2 @@
+module ClassViewHelper
+end
