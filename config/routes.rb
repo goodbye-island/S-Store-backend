@@ -1,82 +1,60 @@
 Rails.application.routes.draw do
-  get 'keyword_view/KeywordView'
-  get 'keyword_view' => 'keyword_view#KeywordView'
 
-  get 'keyword_make/KeywordMake'
-  get 'keyword_make' => 'keyword_make#KeywordMake'
+#USER ROUTES
+  get 'user_view/UserView'
+  get 'user_view' => 'user_view#UserView'
 
-  get 'department_make/DepartmentMake'
-  get 'department_make' => 'department_make#DepartmentMake'
+  get 'user_delete/UserDelete'
+  get 'user_delete' => 'user_delete#UserDelete'
 
-  get 'semester_view/getSemesters'
-  get 'semester_view' => 'semester_view#getSemesters'
+  get 'user_edit/UserEdit'
+  get 'user_edit' => 'user_edit#UserEdit'
 
-  get 'dept_view/getDepts'
-  get 'dept_view' => 'dept_view#getDepts'
+  get 'user_add/UserAdd'
+  get 'user_add'  => 'user_add#UserAdd'
+##################
+#DEPARTMENT ROUTES
+  get 'department_edit/DepartmentEdit'
+  get 'department_edit' => 'department_edit#DepartmentEdit'
+
+  get 'department_view/DepartmentView'
+  get 'department_view' => 'department_view#DepartmentView'
+
+  get 'department_add/DepartmentAdd'
+  get 'department_add' => 'department_add#DepartmentAdd'
+##################
+
+#CLASS ROUTES
+  get 'class_delete/class_delete'
+  get 'class_delete' => "class_delete#class_delete"
+
+  get 'class_add/class_add'
+  get 'class_add' => 'class_add#class_add'
+
+  get 'class_edit/class_edit'
+  get 'class_edit' => 'class_edit#class_edit'
 
   get 'class_view/getClasses'
   get 'class_view' => 'class_view#getClasses'
+##################
 
-  get 'course/getInfo'
-  get 'course' => 'course#getInfo'
+#SYLLABUS ROUTES
+  get 'syllabus_delete/syllabus_delete'
+  get 'syllabus_delete' => 'syllabus_delete#syllabus_delete'
 
-  get 'class/retrieve'
-  get 'class/:id' => 'class#retrieve'
+  get 'syllabus_add/syllabus_add'
+  get 'syllabus_add' => 'syllabus_add#syllabus_add'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  get 'syllabus_edit/syllabus_edit'
+  get 'syllabus_edit' => 'syllabus_edit#syllabus_edit'
 
-  # You can have the root of your site routed with "root"
-  #root 'site#:index'
+  get 'syllabus_view/SyllabusView'
+  get 'syllabus_view' => 'syllabus_view#SyllabusView'
+##################
 
-
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get 'semester_view/getSemesters'
+  get 'semester_view' => 'semester_view#getSemesters'
+  
+  get 'unknown_route/UnknownRoute'
+  get '*path' => 'unknown_route#UnknownRoute'
 end

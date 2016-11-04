@@ -1,4 +1,4 @@
 class User < CapstoneConnect
-#    establish_connection(:development)
 	self.table_name = "User"
+#	self.primary_key = 'User_ID'
 end
