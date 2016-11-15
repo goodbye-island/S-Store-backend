@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'term_view/term_view'
+  get 'term_view' => 'term_view#term_view'
+
+  get 'role_view/role_view'
+  get 'role_view' => 'role_view#role_view'
+
+  get 'role_add/role_add'
+  get 'role_add' => 'role_add#role_add'
+
+  get 'auth_test/AuthTest'
+  get 'auth_test' => 'auth_test#AuthTest'
+
 #USER ROUTES
   get 'user_view/UserView'
   get 'user_view' => 'user_view#UserView'

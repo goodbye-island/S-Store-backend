@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104032315) do
+ActiveRecord::Schema.define(version: 20161115083355) do
 
   create_table "Class", id: false, force: :cascade do |t|
     t.integer "Class_ID",        limit: 4,             null: false
@@ -27,11 +27,19 @@ ActiveRecord::Schema.define(version: 20161104032315) do
     t.integer "Day_Len",         limit: 4
     t.integer "Lab_ID",          limit: 4
     t.time    "Lab_Time"
-    t.integer "Lab_len",         limit: 4
+    t.integer "Lab_Len",         limit: 4
   end
 
   create_table "Class_Days", primary_key: "Day_ID", force: :cascade do |t|
     t.text "Days", limit: 65535, null: false
+  end
+
+  create_table "Class_User_Name_1", id: false, force: :cascade do |t|
+    t.integer "Class_ID",        limit: 4,     null: false
+    t.integer "Teacher_User_ID", limit: 4
+    t.text    "Honorific",       limit: 65535
+    t.text    "First_Name",      limit: 65535
+    t.text    "Last_Name",       limit: 65535
   end
 
   create_table "Course", id: false, force: :cascade do |t|
@@ -111,6 +119,31 @@ ActiveRecord::Schema.define(version: 20161104032315) do
     t.integer "Lab_Len",         limit: 4
   end
 
+  create_table "V_Class_Course_2", id: false, force: :cascade do |t|
+    t.integer "Class_ID",        limit: 4,                      null: false
+    t.integer "Dept_ID",         limit: 4,                      null: false
+    t.text    "Dept_Title",      limit: 65535,                  null: false
+    t.text    "Course_Title",    limit: 65535,                  null: false
+    t.text    "Description",     limit: 4294967295,             null: false
+    t.integer "Term_ID",         limit: 4,                      null: false
+    t.text    "Term",            limit: 65535,                  null: false
+    t.integer "Year",            limit: 4,                      null: false
+    t.integer "Teacher_User_ID", limit: 4
+    t.integer "Section",         limit: 4,          default: 0, null: false
+    t.integer "CRN",             limit: 4
+    t.integer "Syl_ID",          limit: 4
+    t.integer "Day_ID",          limit: 4
+    t.text    "Class_Day",       limit: 65535,                  null: false
+    t.time    "Day_Time"
+    t.integer "Day_Len",         limit: 4
+    t.integer "Lab_ID",          limit: 4
+    t.time    "Lab_Time"
+    t.integer "Lab_Len",         limit: 4
+    t.text    "Honorific",       limit: 65535
+    t.text    "First_Name",      limit: 65535
+    t.text    "Last_Name",       limit: 65535
+  end
+
   create_table "V_User_Roles_Status", id: false, force: :cascade do |t|
     t.integer "User_ID",     limit: 4,     default: 0, null: false
     t.text    "Email",       limit: 65535,             null: false
@@ -163,6 +196,11 @@ ActiveRecord::Schema.define(version: 20161104032315) do
   end
 
   create_table "syllabus_rbs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "term_rbs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
