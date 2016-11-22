@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'teacher_view/teacher_view'
+  get 'teacher_view' => 'teacher_view#teacher_view'
+
+  get 'course_view/course_view'
+  get 'course_view' => 'course_view#course_view'
+
+  get 'course_edit/course_edit'
+  get 'course_edit' => 'course_edit#course_edit'
+
+  get 'course_add/course_add'
+  get 'course_add' => 'course_add#course_add'
 
   get 'term_view/term_view'
   get 'term_view' => 'term_view#term_view'
@@ -54,8 +65,8 @@ Rails.application.routes.draw do
   get 'syllabus_delete/syllabus_delete'
   get 'syllabus_delete' => 'syllabus_delete#syllabus_delete'
 
-  get 'syllabus_add/syllabus_add'
-  get 'syllabus_add' => 'syllabus_add#syllabus_add'
+  post 'syllabus_add/syllabus_add'
+  post 'syllabus_add' => 'syllabus_add#syllabus_add'
 
   get 'syllabus_edit/syllabus_edit'
   get 'syllabus_edit' => 'syllabus_edit#syllabus_edit'

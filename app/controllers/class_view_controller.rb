@@ -1,20 +1,8 @@
 require 'json'
 require 'net/http'
-#require 'openssl'
 
 class ClassViewController < ApplicationController
   def getClasses
-#    OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-#    url = URI.parse('https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=1/fFBGRNJru1FQd44AzqT3Zg')
-#    http = Net::HTTP.new(url.host, url.port)
-#    http.use_ssl = true
-#    req = Net::HTTP::Get.new(url.to_s)
-
-#    req = Net::HTTP::Get.new(url.request_uri)
-#    res = http.request(req)
-#    puts res.body
-
-
   	infoHash = Hash.new
   	infoHash["title"] = params["title"]
   	infoHash["course"] = params["course"]
@@ -44,19 +32,19 @@ class ClassViewController < ApplicationController
   			classes = classes.where("Class_ID": infoHash["course"])
   		end
   		if(infoHash["semester"]!="" and infoHash["semester"]!=nil)
-			classes = classes.where("Term": infoHash["semester"])
-		end
+		  	classes = classes.where("Term": infoHash["semester"])
+  		end
   		if(infoHash["department"]!="" and infoHash["department"]!=nil)
-			classes = classes.where("Dept_Title": infoHash["department"])
-		end
-  		if(infoHash["year"]!="" and infoHash["year"]!=nil)
-			classes = classes.where("Year": infoHash["year"])
-		end
+			  classes = classes.where("Dept_ID": infoHash["department"])
+  		end
+    	if(infoHash["year"]!="" and infoHash["year"]!=nil)
+  			classes = classes.where("Year": infoHash["year"])
+  		end
   		if(infoHash["crn"]!="" and infoHash["crn"]!=nil)
   			classes = classes.where("CRN": infoHash["crn"])
   		end
-		response.headers['Content-Type'] = 'application/json'
-		render text: classes.to_json
+  		response.headers['Content-Type'] = 'application/json'
+  		render text: classes.to_json
   	end
   end
 end
