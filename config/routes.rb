@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'day_view/day_view'
+  get 'day_view' => 'day_view#day_view'
+
   get 'teacher_view/teacher_view'
   get 'teacher_view' => 'teacher_view#teacher_view'
 
