@@ -20,7 +20,7 @@ class ClassViewController < ApplicationController
   		infoHash["teacher"] == nil and 
   		infoHash["crn"] == nil)
 
-  		classes = ClassView.first(30)
+  		classes = ClassView.first(50)
   		response.headers['Content-Type'] = 'application/json'
   		render text: classes.to_json
   	else
