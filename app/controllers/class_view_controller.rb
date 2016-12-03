@@ -18,7 +18,8 @@ class ClassViewController < ApplicationController
   		infoHash["department"] == nil and 
   		infoHash["year"] == nil and 
   		infoHash["teacher"] == nil and 
-  		infoHash["crn"] == nil)
+  		infoHash["crn"] == nil and
+      params["syllabus"] == nil)
 
   		classes = ClassView.first(50)
   		response.headers['Content-Type'] = 'application/json'
@@ -43,6 +44,10 @@ class ClassViewController < ApplicationController
   		if(infoHash["crn"]!="" and infoHash["crn"]!=nil)
   			classes = classes.where("CRN": infoHash["crn"])
   		end
+      if(params["syllabus"]=="false")
+        classes = classes.where("Syl_ID": "null")
+        classes = classes.where("Syl_ID": "NULL")
+      end
   		response.headers['Content-Type'] = 'application/json'
   		render text: classes.to_json
   	end
