@@ -2,10 +2,7 @@
 
 * Download source`GIT clone https://github.com/goodbye-island/S-Store-backend.git`
 * Install Ruby on Rails for ruby 2.2
-
-(Windows only)
-
-* In your rails install there are batch files which may be incorrect. See http://stackoverflow.com/questions/35545361/rails-the-system-cannot-find-the-path-specified
+* (Windows only) In your rails install there are batch files which may be incorrect. See http://stackoverflow.com/questions/35545361/rails-the-system-cannot-find-the-path-specified
 in the batch files that have
 @ECHO OFF
 IF NOT "%~f0" == "~f0" GOTO :WinNT
