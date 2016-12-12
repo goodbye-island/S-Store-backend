@@ -1,28 +1,33 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Step 1: download source
+GIT clone https://github.com/goodbye-island/S-Store-backend.git
+Step 2:
+Install Ruby on Rails for ruby 2.2
+Step 3 (Windows only)
+In your rails install there are batch files which may be incorrect. See http://stackoverflow.com/questions/35545361/rails-the-system-cannot-find-the-path-specified
+in the batch files that have
+@ECHO OFF
+IF NOT "%~f0" == "~f0" GOTO :WinNT
+@"C:\Users\emachnic\GitRepos\railsinstaller-windows\stage\Ruby2.2.0\bin\ruby.exe" "C:/Users/emachnic/GitRepos/railsinstaller-windows/stage/Ruby2.2.0/bin/bundle" %1 %2 %3 %4 %5 %6 %7 %8 %9
+GOTO :EOF
+:WinNT
+@"C:\Users\emachnic\GitRepos\railsinstaller-windows\stage\Ruby2.2.0\bin\ruby.exe" "%~dpn0" %*
+replace that code with
+@ECHO OFF
+IF NOT "%~f0" == "~f0" GOTO :WinNT
+ECHO.This version of Ruby has not been built with support for Windows 95/98/Me.
+GOTO :EOF
+:WinNT
+@"%~dp0ruby.exe" "%~dpn0" %*
+Step 4:
+run bundle install in the project's folder
+Step 5:
+Create a database.yml file in the config folder under the root folder of the project and configure it tok point at your database
+Step 6:
+either run the file
+backendnewhahagetit.bat
+or run the command 
+rails server -b 0.0.0.0 -p 8080
+Step 7: Verify the server starts correctly by visiting one of the routes
+try
+localhost:8080/class_view?
+in your browser
